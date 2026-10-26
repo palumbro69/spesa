@@ -1,24 +1,30 @@
 let totale=0;
 
 function compra(){
-let costo=0;
 
-do{
-    costo= prompt("inserisci prezzo");
+    let costo;
+   
+    costo= document.getElementById("prezzo").value;
+    if(costo<0){
+        costo=0;
+    }
+   
+
+    costo=parseFloat(costo)
     
+    totale += costo
+    console.log("totale: " + totale);
 
-}while(costo < 0 || costo == null ||  isNaN(costo) || costo == "");
+    document.getElementById("risultato").innerText = totale + "€";
 
-costo=parseFloat(costo)
-totale=parseFloat(totale)
+    document.getElementById("prezzo").value= "";
 
-totale += costo
-console.log("totale: " + totale);
+}
 
-let paragrafo;
-paragrafo= document.getElementById("risultato")
+function azzera(){
 
-paragrafo.innerHTML
+totale=0;
+document.getElementById("risultato").innerText = totale + "€"
 
 
 }
